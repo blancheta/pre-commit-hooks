@@ -6,7 +6,7 @@ from typing import List
 from typing import Optional
 from typing import Sequence
 
-START_QUOTE_RE = re.compile('^[a-zA-Z]*"')
+START_QUOTE_RE = re.compile("^[a-zA-Z]*'")
 
 
 def handle_match(token_text: str) -> str:
@@ -19,7 +19,7 @@ def handle_match(token_text: str) -> str:
         if '"' in meat or "'" in meat:
             return token_text
         else:
-            return match.group().replace("'", '"') + meat + "'"
+            return match.group().replace("'", '"') + meat + '"'
     else:
         return token_text
 
